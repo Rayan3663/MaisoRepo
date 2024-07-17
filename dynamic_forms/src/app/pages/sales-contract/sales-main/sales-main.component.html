@@ -1,0 +1,28 @@
+<div>
+  <div class="main">Sales Contract</div>
+  <div class="action">
+    <p class="action-1">Actions:</p>
+
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" (click)="showSearchComponent()">Search</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="showContractComponent()">Contract</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="showInstallmentComponent()">Installment</a>
+    </li>
+  </ul>
+  </div>
+  
+ <div *ngIf="displaySearchComponent">
+  <app-search></app-search>
+</div>
+<div *ngIf="displayContractComponent">
+  <app-contract></app-contract>
+</div>
+<div *ngIf="displayInstallmentComponent">
+  <app-installment></app-installment>
+</div>
+</div>
