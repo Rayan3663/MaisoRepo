@@ -13,124 +13,100 @@ import { AppState } from 'src/app/store/form.reducer';
   styleUrls: ['./installment.component.css']
 })
 export class InstallmentComponent implements OnInit {
-  DropDownVal!: string;
-  installmentForm!: FormGroup;
-  initPrice: number = 0; 
- private storeSubscription: Subscription | undefined;
+DropDownVal!: string;
+DynamicForm!: FormGroup;
+
+public size: ButtonSize = "none";
+public value: Date = new Date(2000, 2, 10);
+
+
+   public pagerTypes = ["numeric", "input"];
+
+  public type: PagerType = "numeric";
+  public buttonCount = 5;
+  public info = true;
+  public pageSizes = [2, 5, 10, 20];
+  public previousNext = true;
+  public position: PagerPosition = "bottom";
+
+  public pageSize = 5;
+  public skip = 0;
+
+  constructor(private fb : FormBuilder){}
   
-  public size: ButtonSize = "none";
-  public value: Date = new Date(2000, 2, 10);
-  
-  
-     public pagerTypes = ["numeric", "input"];
-  
-    public type: PagerType = "numeric";
-    public buttonCount = 5;
-    public info = true;
-    public pageSizes = [2, 5, 10, 20];
-    public previousNext = true;
-    public position: PagerPosition = "bottom";
-  
-    public pageSize = 5;
-    public skip = 0;
-  
-    constructor(private fb : FormBuilder, private store: Store<{ contractDetails: AppState }>){}
-    
-    ngOnInit(): void {
-      this.installmentForm = this.fb.group({
-        upperSec: this.fb.group({
-          initPrice: [''],
-          CashPrice: [''],
-          disInt: [''],
-          perc: [''],
-          finalPrice: [''],
-          initialNpv: [''],
-          loss: [''],
-          percent: [''],
-          finalNpv: ['']
-        }),
-        lowerSec: this.fb.group({
-          plan: [''],
-          interestRate: [''],
-          asOfDate: [''],
-          check1: [true],
-          check2: [true],
-          answer: ['no']
-        })
-      });
-  
-    
-      this.storeSubscription = this.store.select('contractDetails').subscribe(state => {
-        if (state) {
-          this.initPrice = state.initPrice; 
-          this.installmentForm.patchValue({
-            upperSec: {
-              initPrice: this.initPrice 
-            }
-          });
-        }
-       if(state==undefined)
-       {
-        this.initPrice=50;
-       }
-      });
+  ngOnInit(): void {
+    this.DynamicForm = this.fb.group({
+      CashPrice : ['', Validators.required],
+      InitialPrice : ['', Validators.required],
+      Calculation1 : ['', Validators.required],
+      FinalPrice : ['', Validators.required],
+      InitialNPV : ['', Validators.required],
+      Plan : ['', Validators.required],
+      Intent : ['', Validators.required], // radio button label,
+      
+    })
+  }
+    getDropDownValue(event : any){
+         this.DropDownVal = event.target.value;
+        //  debugger;
+        this.changeFields();
     }
-      getDropDownValue(event : any){
-           this.DropDownVal = event.target.value;
-          //  debugger;
-          this.changeFields();
-      }
-  
-      changeFields(){
-        // debugger;
-        if (this.DropDownVal === 'Finance1') {
-          console.log("1st");
-        this.installmentForm.addControl('dynamicField1', new FormControl(''));
-      } else if (this.DropDownVal === 'Finance2') {
-        console.log("2nd");
-        this.installmentForm.addControl('dynamicField2', new FormControl(''));
-      }
+
+    changeFields(){
+      // debugger;
+      if (this.DropDownVal === 'Finance1') {
+        console.log("1st");
+      this.DynamicForm.addControl('dynamicField1', new FormControl(''));
+    } else if (this.DropDownVal === 'Finance2') {
+      console.log("2nd");
+      this.DynamicForm.addControl('dynamicField2', new FormControl(''));
     }
+  }
+
+
+  GridActions = ["Action 1", "Action 2", "Action 3", "Action 4"]
+
   
-    
-      gridData = [
-        { slNo: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300, CashValue : 215,  isSelected: false },
-        { slNo: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300, CashValue : 215,  isSelected: false },
-        { slNo: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300, CashValue : 215,  isSelected: false },
-        { slNo: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300, CashValue : 215,  isSelected: false },
-        { slNo: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300, CashValue : 215,  isSelected: false },
-        { slNo: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300, CashValue : 215,  isSelected: false }
-  
-      ];
-  
-          UtilityData = [
-        { Number: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300,  isSelected: false },
-        { Number: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300,  isSelected: false },
-        { Number: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300,  isSelected: false },
-        { Number: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300,  isSelected: false },
-        { Number: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300,  isSelected: false },
-        { Number: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300,  isSelected: false }
-  
-      ];
-  
-      public rowClass(context: any): string {
-      const dataItem = context.dataItem;
-      let rowClass = '';
-      if (dataItem.index % 2 === 0) {
-        rowClass = 'even-row';
-      } else {
-        rowClass = 'odd-row';
-      }
-  
-      return rowClass;
+    gridData = [
+      { slNo: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300, CashValue : 215, Actions:this.GridActions, isSelected: false },
+      { slNo: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300, CashValue : 215, Actions:this.GridActions, isSelected: false },
+      { slNo: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300, CashValue : 215, Actions:this.GridActions, isSelected: false },
+      { slNo: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300, CashValue : 215, Actions:this.GridActions, isSelected: false },
+      { slNo: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300, CashValue : 215, Actions:this.GridActions, isSelected: false },
+      { slNo: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300, CashValue : 215, Actions:this.GridActions, isSelected: false }
+
+    ];
+
+    UtilityData = [
+      { Number: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300,  isSelected: false },
+      { Number: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300,  isSelected: false },
+      { Number: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300,  isSelected: false },
+      { Number: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300,  isSelected: false },
+      { Number: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300,  isSelected: false },
+      { Number: 1, Date: 'Chai', DescriptionEnglish : 'Sample Description', Description: 'Sample Description', Percent:99, Type: 'Delivery', Amount : 300,  isSelected: false }
+
+    ];
+
+    public rowClass(context: any): string {
+    const dataItem = context.dataItem;
+    let rowClass = '';
+
+    // Add logic to determine row color based on data (e.g., even/odd)
+    if (dataItem.index % 2 === 0) {
+      rowClass = 'even-row';
+    } else {
+      rowClass = 'odd-row';
     }
-  
-      areaList = ["hello", "hello", "hello", "hello"];
-  
-    currentCity: string = 'Installments'; 
-  
-    openCity(cityName: string) {
-      this.currentCity = cityName;
-    }
+
+    return rowClass;
+  }
+
+    areaList = ["hello", "hello", "hello", "hello"];
+
+  currentBtnTab: string = 'Installments'; 
+
+  MenuTabClicked(BtnClicked: string) {
+    this.currentBtnTab = BtnClicked;
+  }
 }
 

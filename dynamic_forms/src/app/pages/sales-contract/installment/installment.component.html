@@ -1,312 +1,280 @@
-<form [formGroup]="installmentForm" >
-    <div class="form-container">
-      <!-- <section class="upperSection" formGroupName="upperSec"> -->
-        <fieldset class="border rounded-3 p-3 ms-2 me-2 section1-fieldset" formGroupName="upperSec">
-            <legend class="float-none w-auto px-3 fs-6 legend-text"><strong>Payment Plan</strong></legend>
-         <div class="upperLeftSection">
-    
-         <div class="ParentInputContainer">
-             <div class="InputContainer">
-                 <div class="InitialLabel">
-                     <kendo-label class="inputLabel">Cash Price:</kendo-label>
-    
-                 </div>
-                 <input kendoTextBox  formControlName="CashPrice" class="userInputs" type="text" placeholder="0.00">
-             </div>
-         </div>
-          <div class="ParentInputContainer">
-             <div class="InputContainer">
-                 <div class="InitialLabel">
-                  <kendo-label class="inputLabel">Initial Price:</kendo-label>
-                 </div>
-                 <input kendoTextBox 
-                     class="userInputs"formControlName="initPrice" id="initPrice" type="number" placeholder="0.00">
-              
-             </div>
-    
-             <div class="Mathematic_Seperator">
-                 <div>
-                     <span>-</span>
-                 </div>
-             </div>
-    
-             <div class="InputContainer">
-                 <div class="MidInitialLabel">
-                     <kendo-label class="inputLabel">Dis(+)/Int(-):</kendo-label>
-                 </div>
-                 <input kendoTextBox formControlName="disInt" class="userInputs" type="text" placeholder="0.00">
-             </div>
-    
-             <div class="percentage_section">
-                 <input kendoTextBox formControlName="perc" class="userInputs" type="text" placeholder="0.00">
-                 <kendo-label class="inputLabel">%</kendo-label>
-             </div>
-    
-             <i class="bi bi-exclamation-circle-fill exclamation_icon"></i>
-    
-             <div class="Mathematic_Seperator">
-                 <span>=</span>
-             </div>
-    
-             <div class="InputContainer">
-                 <div class="FinalLabel">
-                     <kendo-label class="inputLabel">Final Price:</kendo-label>
-                 </div>
-                 <input kendoTextBox formControlName="finalPrice" class="userInputs" type="text" placeholder="0.00">
-             </div>
-          </div>
-    
-         <div class="ParentInputContainer">
-             <div class="InputContainer">
-                 <div class="InitialLabel">
-                     <kendo-label class="inputLabel">Initial NPV:</kendo-label>
-                 </div>
-                 <input kendoTextBox formControlName="initialNpv" class="userInputs" type="text" placeholder="0.00">
-             </div>
-         
-             <div class="Mathematic_Seperator">
-                 <div>
-                     <span>-</span>
-                 </div>
-             </div>
-         
-             <div class="InputContainer">
-                 <div class="MidInitialLabel">
-                     <kendo-label class="inputLabel">Loss(-)/Favour(+):</kendo-label>
-                 </div>
-                 <input kendoTextBox formControlName="loss" class="userInputs" type="text" placeholder="0.00">
-             </div>
-         
-             <div class="percentage_section">
-                 <input kendoTextBox formControlName="percent" class="userInputs" type="text" placeholder="0.00">
-                 <kendo-label class="inputLabel">%</kendo-label>
-             </div>
-         
-             <i class="bi bi-exclamation-circle-fill exclamation_icon"></i>
-         
-             <div class="Mathematic_Seperator">
-                 <span >=</span>
-             </div>
-         
-             <div class="InputContainer">
-                 <div class="FinalLabel">
-                     <kendo-label class="inputLabel">Final NPV:</kendo-label>
-                 </div>
-                 <input kendoTextBox formControlName="finalNpv" class="userInputs" type="text" placeholder="0.00">
-             </div>
-         </div>
-    
-         
-     </div>
-    
-         <div class="upperRightSection">
-             <div class="ParentMenuContainer" style="display: inline;">
-                 <div class="menuBtn">     
-                    <div class="menu-btns">              
-                     <button class="inner_menu_btn" kendoButton><i class="bi bi-check menu_icon"></i>Apply</button>
-                     <button class="inner_menu_btn" kendoButton><i class="bi bi-arrow-repeat menu_icon"></i>Reset</button>
-                     <button class="inner_menu_btn" kendoButton><span>Utils</span>
-                     <input class="userInputs customUserInputMenu" value="0%" type="text"/>
-                     </button>
-                     <kendo-dropdownbutton class="inner_menu_dropdown menu_icon_btn_custom" [size]="size" [data]="areaList">
-                         <i style="font-size: 1rem;" class="bi bi-cash-stack menu_icon"></i>
-                     </kendo-dropdownbutton>
-                    
-                     <kendo-dropdownbutton class="inner_menu_dropdown" [size]= "size" [data]="areaList" >
-                                 More Options
-                     </kendo-dropdownbutton>
-                     
+<div class="form-container">
+    <fieldset class="border rounded-3 p-3 ms-2 me-2 section1-fieldset">
+        <legend class="float-none w-auto px-3 fs-6 legend-text">Payment Plan</legend>
+        <section class="fieldSection">
+            <section class="upperSection">
+                <div class="upperLeftSection">
+
+                    <div class="ParentInputContainer">
+                        <div class="InputContainer">
+                            <div class="InitialLabel">
+                                <kendo-label class="inputLabel">Cash Price:</kendo-label>
+
+                            </div>
+                            <kendo-textbox class="userInputs" type="text" placeholder="0.00"></kendo-textbox>
+                        </div>
                     </div>
-    
-                
-                 </div>
-    
-                 <div class="circleIconCont">
-                     <i class="bi bi-0-circle-fill circleIcon"></i>
-                     <i class="bi bi-0-circle-fill circleIcon"></i>
-                     <i class="bi bi-0-circle-fill circleIcon"></i>
-                     <i class="bi bi-0-circle-fill circleIcon"></i>
-                     <i class="bi bi-0-circle-fill circleIcon"></i>
-                 </div>
-                 
-             </div>
-    
-         </div>
-    
-    
-       
-    
-    </fieldset>
-    
-     <section class="lowerSection" formGroupName="lowerSec">
-         <div class="ParentInputContainer ParentInputContainer2">
-             <div class="InputContainer">
-                 <div class="InitialLabel">
-                     <kendo-label class="inputLabel">Plan:</kendo-label>
-                 </div>
-                 <kendo-dropdownlist formControlName="plan" class="userInputs" [data]="areaList"> </kendo-dropdownlist>
-             </div>
-             <div class="InputContainer">
-                <div class="InitialLabel radioLabel">
-                    <kendo-label class="inputLabel">Intent:</kendo-label>
+                    <div class="ParentInputContainer">
+                        <div class="InputContainer">
+                            <div class="InitialLabel">
+                                <kendo-label class="inputLabel">Initial Price:</kendo-label>
+                            </div>
+                            <kendo-textbox class="userInputs" type="text" placeholder="0.00">
+                            </kendo-textbox>
+                        </div>
+
+                        <div class="Mathematic_Seperator">
+                            <div>
+                                <span>-</span>
+                            </div>
+                        </div>
+
+                        <div class="InputContainer">
+                            <div class="MidInitialLabel">
+                                <kendo-label class="inputLabel">Dis(+)/Int(-):</kendo-label>
+                            </div>
+                            <kendo-textbox class="userInputs" type="text" placeholder="0.00"></kendo-textbox>
+                        </div>
+
+                        <div class="percentage_section">
+                            <kendo-textbox class="userInputs" type="text" placeholder="0.00"></kendo-textbox>
+                            <kendo-label class="inputLabel">%</kendo-label>
+                        </div>
+
+                        <i class="bi bi-exclamation-circle-fill exclamation_icon"></i>
+
+                        <div class="Mathematic_Seperator">
+                            <span>=</span>
+                        </div>
+
+                        <div class="InputContainer">
+                            <div class="FinalLabel">
+                                <kendo-label class="inputLabel">Final Price:</kendo-label>
+                            </div>
+                            <kendo-textbox class="userInputs" type="text" placeholder="0.00"></kendo-textbox>
+                        </div>
+                    </div>
+
+                    <div class="ParentInputContainer">
+                        <div class="InputContainer">
+                            <div class="InitialLabel">
+                                <kendo-label class="inputLabel">Initial NPV:</kendo-label>
+                            </div>
+                            <kendo-textbox class="userInputs" type="text" placeholder="0.00"></kendo-textbox>
+                        </div>
+
+                        <div class="Mathematic_Seperator">
+                            <div>
+                                <span>-</span>
+                            </div>
+                        </div>
+
+                        <div class="InputContainer">
+                            <div class="MidInitialLabel">
+                                <kendo-label class="inputLabel">Loss(-)/Favour(+):</kendo-label>
+                            </div>
+                            <kendo-textbox class="userInputs" type="text" placeholder="0.00"></kendo-textbox>
+                        </div>
+
+                        <div class="percentage_section">
+                            <kendo-textbox class="userInputs" type="text" placeholder="0.00"></kendo-textbox>
+                            <kendo-label class="inputLabel">%</kendo-label>
+                        </div>
+
+                        <i class="bi bi-exclamation-circle-fill exclamation_icon"></i>
+
+                        <div class="Mathematic_Seperator">
+                            <span>=</span>
+                        </div>
+
+                        <div class="InputContainer">
+                            <div class="FinalLabel">
+                                <kendo-label class="inputLabel">Final NPV:</kendo-label>
+                            </div>
+                            <kendo-textbox class="userInputs" type="text" placeholder="0.00"></kendo-textbox>
+                        </div>
+                    </div>
+
+
                 </div>
-               <div class="radiocontainer">
-                <div class="innerradiocontainer">
-                    <kendo-label class="Innerradiolabel">Neutral:</kendo-label>
-                    <input type="radio" class="radioInput" name="Intent" value="Neutral">
+
+                <div class="upperRightSection">
+                    <div class="ParentMenuContainer" style="display: inline;">
+                        <div class="menuBtn">
+                            <div class="menu-btns">
+                                <button class="inner_menu_btn" kendoButton><i
+                                        class="bi bi-check menu_icon"></i>Apply</button>
+                                <button class="inner_menu_btn" kendoButton><i
+                                        class="bi bi-arrow-repeat menu_icon"></i>Reset</button>
+                                <button class="inner_menu_btn" kendoButton><span>Utils</span>
+                                    <input class="userInputs customUserInputMenu" value="0%" type="text" />
+                                </button>
+                                <kendo-dropdownbutton class="inner_menu_dropdown menu_icon_btn_custom" [size]="size"
+                                    [data]="areaList">
+                                    <i style="font-size: 1rem;" class="bi bi-cash-stack menu_icon"></i>
+                                </kendo-dropdownbutton>
+
+                                <kendo-dropdownbutton class="inner_menu_dropdown" [size]="size" [data]="areaList">
+                                    More Options
+                                </kendo-dropdownbutton>
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="circleIconCont">
+                            <i class="bi bi-0-circle-fill circleIcon"></i>
+                            <i class="bi bi-0-circle-fill circleIcon"></i>
+                            <i class="bi bi-0-circle-fill circleIcon"></i>
+                            <i class="bi bi-0-circle-fill circleIcon"></i>
+                            <i class="bi bi-0-circle-fill circleIcon"></i>
+                        </div>
+
+                    </div>
+
                 </div>
-        
-                <div class="innerradiocontainer">
-                    <kendo-label class="Innerradiolabel">Shrink:</kendo-label>
-                    <input type="radio" class="radioInput" name="Intent" value="Shrink">
+            </section>
+
+
+            <div class="ParentInputContainer ParentInputContainer2">
+                <div class="InputContainer">
+                    <div class="InitialLabel">
+                        <kendo-label class="inputLabel">Plan:</kendo-label>
+                    </div>
+                    <kendo-dropdownlist class="userInputs" [data]="areaList"> </kendo-dropdownlist>
                 </div>
-        
-                <div class="innerradiocontainer">
-                    <kendo-label class="Innerradiolabel">Extend:</kendo-label>
-                    <input type="radio" class="radioInput" name="Intent" value="Extend">
-                    
+
+                <div class="InputContainer">
+                    <div class="InitialLabel radioLabel">
+                        <kendo-label class="inputLabel">Intent:</kendo-label>
+                    </div>
+                    <div class="radiocontainer">
+                        <div class="innerradiocontainer">
+                            <kendo-label class="Innerradiolabel">Neutral:</kendo-label>
+                            <input type="radio" class="radioInput" name="Intent" value="Neutral">
+                        </div>
+
+                        <div class="innerradiocontainer">
+                            <kendo-label class="Innerradiolabel">Shrink:</kendo-label>
+                            <input type="radio" class="radioInput" name="Intent" value="Shrink">
+                        </div>
+
+                        <div class="innerradiocontainer">
+                            <kendo-label class="Innerradiolabel">Extend:</kendo-label>
+                            <input type="radio" class="radioInput" name="Intent" value="Extend">
+
+                        </div>
+                    </div>
                 </div>
-             </div>
+
+                <div class="InputContainer">
+                    <div class="InitialLabel">
+                        <kendo-label class="inputLabel">Interest Rate:</kendo-label>
+                    </div>
+                    <kendo-dropdownlist class="userInputs" [data]="areaList"> </kendo-dropdownlist>
+                </div>
+
+                <div class="InputContainer">
+                    <div class="InitialLabel">
+                        <kendo-label class="inputLabel">As Of Date:</kendo-label>
+                    </div>
+                    <kendo-dateinput class="userInputs" [disabled]="true" [value]="value"></kendo-dateinput>
+                </div>
+
             </div>
-             <!-- <div class="InputContainer"> 
-                <div class="InitialLabel radioLabel">
-                    <kendo-label class="inputLabel">Intent:</kendo-label>
-                </div>
-                <div class="radiocontainer">
-                    <kendo-radiobutton
-                      value="neutral"
-                      #yes1
-                      formControlName="answer"
-                    ></kendo-radiobutton>
-                    <kendo-label
-                    class="inputLabel"
-                      [for]="yes1"
-                      
-                    >Neutral</kendo-label>
-                  </div>
-                  <div >
-                    <kendo-radiobutton
-                      value="shrink"
-                      #no1
-                      formControlName="answer"
-                    ></kendo-radiobutton>
-                    <kendo-label
-                    class="inputLabel"
-                      [for]="no1"
-                      
-                    >Shrink</kendo-label>
-                  </div>
-                  <div>
-                    <kendo-radiobutton
-                      value="extend"
-                      #yes1
-                      formControlName="answer"
-                    ></kendo-radiobutton>
-                    <kendo-label
-                    class="inputLabel"
-                      [for]="yes1"
-                      
-                    >Extend</kendo-label>
-                  </div>
-                
-             </div>  -->
-         
-             <div class="InputContainer">
-                 <div class="InitialLabel">
-                     <kendo-label class="inputLabel">Interest Rate:</kendo-label>
-                 </div>
-                 <kendo-dropdownlist formControlName="interestRate" class="userInputs" [data]="areaList"> </kendo-dropdownlist>
-             </div>
-    
-             <div class="InputContainer">
-                 <div class="InitialLabel">
-                     <kendo-label class="inputLabel">As Of Date:</kendo-label>
-                 </div>
-                 <kendo-dateinput interestRate="asOfDate" class="userInputs" [disabled]="true" [value]="value"></kendo-dateinput>
-             </div>
-    
-         </div>
-     
-    
-    <section class="gridSection">
-    <div class="tab">
-     <button class="tablinks" (click)="openCity('Installments')" [class.active]="currentCity === 'Installments'">Installments</button>
-     <button class="tablinks" (click)="openCity('Utilitis')" [class.active]="currentCity === 'Utilitis'">Utilitis</button>
-    </div>
-    
-    <!-- Tab content -->
-    
-    
-        
-    <div class="gridCont">
-     
-     <kendo-grid *ngIf="currentCity == 'Installments'" [kendoGridBinding]="gridData" [rowClass]="rowClass" [pageable]="true" [pageSize]="5" [skip]="0"
-       [pageable]="true">>
-         <kendo-grid-column [class]="'cellCustomClass'" field="slNo" title="#" [width]="20">
-         </kendo-grid-column>
-         <kendo-grid-column [class]="'cellCustomClass'" field="Date" title="Date" [width]="30">
-         </kendo-grid-column>
-         <kendo-grid-column [class]="'cellCustomClass'" field="DescriptionEnglish" title="Description(En)" [width]="60">
-         </kendo-grid-column>
-         <kendo-grid-column [class]="'cellCustomClass'" field="Description" title="Description(Ar)" [width]="60">
-         </kendo-grid-column>
-         <kendo-grid-column [class]="'cellCustomClass'" field="Percent" title="%" [width]="20">
-         </kendo-grid-column>
-         <kendo-grid-column [class]="'cellCustomClass'" field="Type" title="Type" [width]="40">
-         </kendo-grid-column>
-         <kendo-grid-column [class]="'cellCustomClass'" field="Amount" title="Amount" [width]="40">
-         </kendo-grid-column>
-         <kendo-grid-column [class]="'cellCustomClass'" field="CashValue" title="Cash Value" [width]="40">
-         </kendo-grid-column>
-         <kendo-grid-column [class]="'cellCustomClass'" field="" [width]="20">
-                     <ng-template kendoGridCellTemplate let-dataItem>
-                         <input type="checkbox" formControlName="check1" />
-                     </ng-template>
-          </kendo-grid-column>
-    
-             <ng-template kendoPagerTemplate>
-                 <kendo-grid-spacer></kendo-grid-spacer>
-                 <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
-                 <kendo-pager-numeric-buttons [buttonCount]="3"></kendo-pager-numeric-buttons>
-                 <kendo-pager-next-buttons></kendo-pager-next-buttons>
-                 <kendo-pager-info></kendo-pager-info>
-             </ng-template>
-     </kendo-grid>
-    
-     <kendo-grid *ngIf="currentCity == 'Utilitis'" [kendoGridBinding]="UtilityData" [rowClass]="rowClass" [pageable]="true"
-         [pageSize]="5" [skip]="0" [pageable]="true">>
-         <kendo-grid-column [class]="'cellCustomClass'" field="Number" title="Number" [width]="20">
-         </kendo-grid-column>
-         <kendo-grid-column [class]="'cellCustomClass'" field="Date" title="Date" [width]="30">
-         </kendo-grid-column>
-         <kendo-grid-column [class]="'cellCustomClass'" field="DescriptionEnglish" title="Description(En)" [width]="60">
-         </kendo-grid-column>
-         <kendo-grid-column [class]="'cellCustomClass'" field="Description" title="Description(Ar)" [width]="60">
-         </kendo-grid-column>
-         <kendo-grid-column [class]="'cellCustomClass'" field="Amount" title="Amount" [width]="40">
-         </kendo-grid-column>
-         <kendo-grid-column [class]="'cellCustomClass'" field="" [width]="20">
-             <ng-template kendoGridCellTemplate let-dataItem>
-                 <input type="checkbox" formControlName="check2" />
-             </ng-template>
-         </kendo-grid-column>
-     
-         <ng-template kendoPagerTemplate>
-             <kendo-grid-spacer></kendo-grid-spacer>
-             <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
-             <kendo-pager-numeric-buttons [buttonCount]="3"></kendo-pager-numeric-buttons>
-             <kendo-pager-next-buttons></kendo-pager-next-buttons>
-             <kendo-pager-info></kendo-pager-info>
-         </ng-template>
-     </kendo-grid>
-     </div>
-    
-    <div class="gridButton">
-     <button class="tab_btn" kendoButton>Export</button>
-     <button class="tab_btn" kendoButton>Import</button>
-    </div>
-     </section>
-     </section>
-     </div>
-    </form>
-  
+        </section>
+    </fieldset>
+
+    <fieldset class="border rounded-3 p-3 ms-2 me-2 section2-fieldset">
+        <legend class="float-none w-auto px-3 fs-6 legend-text">Installments</legend>
+        <section class="gridSection">
+            <div class="tab">
+                <button class="tablinks" (click)="MenuTabClicked('Installments')"
+                    [class.active]="currentBtnTab === 'Installments'">Installments</button>
+                <button class="tablinks" (click)="MenuTabClicked('Utilitis')"
+                    [class.active]="currentBtnTab === 'Utilitis'">Utilitis</button>
+            </div>
+
+            <!-- Tab content -->
+
+            <div class="gridCont">
+
+                <kendo-grid *ngIf="currentBtnTab == 'Installments'" [kendoGridBinding]="gridData" [rowClass]="rowClass"
+                    [pageable]="true" [pageSize]="5" [skip]="0" [pageable]="true">>
+                    <kendo-grid-column [class]="'cellCustomClass'" field="slNo" title="#" [width]="20">
+                    </kendo-grid-column>
+                    <kendo-grid-column [class]="'cellCustomClass'" field="Date" title="Date" [width]="30">
+                    </kendo-grid-column>
+                    <kendo-grid-column [class]="'cellCustomClass'" field="DescriptionEnglish" title="Description(En)"
+                        [width]="60">
+                    </kendo-grid-column>
+                    <kendo-grid-column [class]="'cellCustomClass'" field="Description" title="Description(Ar)"
+                        [width]="60">
+                    </kendo-grid-column>
+                    <kendo-grid-column [class]="'cellCustomClass'" field="Percent" title="%" [width]="20">
+                    </kendo-grid-column>
+                    <kendo-grid-column [class]="'cellCustomClass'" field="Type" title="Type" [width]="40">
+                    </kendo-grid-column>
+                    <kendo-grid-column [class]="'cellCustomClass'" field="Amount" title="Amount" [width]="40">
+                    </kendo-grid-column>
+                    <kendo-grid-column [class]="'cellCustomClass'" field="CashValue" title="Cash Value" [width]="40">
+                    </kendo-grid-column>
+                    <kendo-grid-column title="Actions" [width]="40">
+                        <ng-template kendoGridCellTemplate let-dataItem>
+                            <kendo-dropdownlist [data]="dataItem.Actions">
+                            </kendo-dropdownlist>
+                        </ng-template>
+                    </kendo-grid-column>
+                    <kendo-grid-column [class]="'cellCustomClass'" field="" [width]="20">
+                        <ng-template kendoGridCellTemplate let-dataItem>
+                            <input type="checkbox" />
+                        </ng-template>
+                    </kendo-grid-column>
+
+                    <ng-template kendoPagerTemplate>
+                        <kendo-grid-spacer></kendo-grid-spacer>
+                        <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
+                        <kendo-pager-numeric-buttons [buttonCount]="3"></kendo-pager-numeric-buttons>
+                        <kendo-pager-next-buttons></kendo-pager-next-buttons>
+                        <kendo-pager-info></kendo-pager-info>
+                    </ng-template>
+                </kendo-grid>
+
+                <kendo-grid *ngIf="currentBtnTab == 'Utilitis'" [kendoGridBinding]="UtilityData" [rowClass]="rowClass"
+                    [pageable]="true" [pageSize]="5" [skip]="0" [pageable]="true">>
+                    <kendo-grid-column [class]="'cellCustomClass'" field="Number" title="Number" [width]="20">
+                    </kendo-grid-column>
+                    <kendo-grid-column [class]="'cellCustomClass'" field="Date" title="Date" [width]="30">
+                    </kendo-grid-column>
+                    <kendo-grid-column [class]="'cellCustomClass'" field="DescriptionEnglish" title="Description(En)"
+                        [width]="60">
+                    </kendo-grid-column>
+                    <kendo-grid-column [class]="'cellCustomClass'" field="Description" title="Description(Ar)"
+                        [width]="60">
+                    </kendo-grid-column>
+                    <kendo-grid-column [class]="'cellCustomClass'" field="Amount" title="Amount" [width]="40">
+                    </kendo-grid-column>
+                    <kendo-grid-column [class]="'cellCustomClass'" field="" [width]="20">
+                        <ng-template kendoGridCellTemplate let-dataItem>
+                            <input type="checkbox" />
+                        </ng-template>
+                    </kendo-grid-column>
+
+                    <ng-template kendoPagerTemplate>
+                        <kendo-grid-spacer></kendo-grid-spacer>
+                        <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
+                        <kendo-pager-numeric-buttons [buttonCount]="3"></kendo-pager-numeric-buttons>
+                        <kendo-pager-next-buttons></kendo-pager-next-buttons>
+                        <kendo-pager-info></kendo-pager-info>
+                    </ng-template>
+                </kendo-grid>
+            </div>
+
+            <div class="gridButton">
+                <button class="tab_btn" kendoButton>Export</button>
+                <button class="tab_btn" kendoButton>Import</button>
+            </div>
+        </section>
+    </fieldset>
+</div>

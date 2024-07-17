@@ -1,6 +1,6 @@
 .form-container {
-  padding-top: 2rem;
-  height: 90vh;
+  padding: 1rem 1px 1rem 1px;
+  /* height: 90vh; */
   width: 75vw;
   background-color: #f4f2ec;
 }
@@ -39,7 +39,7 @@ kendo-label.inputLabel {
   /* margin-right: -19px;    */
 }
 
-input .userInputs::placeholder {
+kendo-textbox .userInputs::placeholder {
   font-size: 10px;
   font-weight: 700;
   padding-left: 8px;
@@ -77,7 +77,7 @@ input .userInputs::placeholder {
   justify-content: end;
 }
 
-.exclamation_icon{
+.exclamation_icon {
   color: rgb(112, 112, 112);
   font-size: 0.7rem;
 }
@@ -93,7 +93,7 @@ input .userInputs::placeholder {
   width: 4rem;
 }
 
-.percentage_section input.userInputs {
+.percentage_section kendo-textbox.userInputs {
   width: 2.5rem;
   border-radius: 0%;
 }
@@ -109,6 +109,9 @@ input .userInputs::placeholder {
 }
 
 /* upper right section */
+.upperRightSection {
+  /* padding-top: 2rem; */
+}
 
 .menu-btns {
   margin-top: 5px;
@@ -119,54 +122,56 @@ input .userInputs::placeholder {
   font-weight: 600;
 }
 
-.customUserInputMenu{
+.customUserInputMenu {
   width: 1.5rem;
   padding-left: 4px;
 }
 
-.inner_menu_btn{
+.inner_menu_btn {
   height: 2.5rem;
   font-size: 10px;
 }
 
-.inner_menu_dropdown{
+.inner_menu_dropdown {
   width: 4rem;
   height: 2.5rem;
   font-size: 10px;
-  
+
 }
 
-.menu_icon_btn_custom{
+.menu_icon_btn_custom {
   width: 2rem;
- 
+
 }
 
-.menu_icon{
+.menu_icon {
   margin-top: 1rem;
   font-size: 1rem;
   padding-right: 0.2rem;
 }
 
 /*css for random circle icons*/
-.circleIconCont{
+.circleIconCont {
   display: flex;
   justify-content: space-between;
   padding: 0 2rem 0 2rem;
   margin-top: 0.5rem;
 }
 
-.circleIcon{
+.circleIcon {
   font-size: 0.7rem;
   color: gray;
 }
 
-.ParentInputContainer2{
-      padding-right: 2rem;
+.ParentInputContainer2 {
+  padding-right: 2rem;
 }
-.radioLabel{
+
+.radioLabel {
   width: 3.5rem;
 }
-.radiocontainer{
+
+.radiocontainer {
   display: flex;
   flex-direction: row;
   font-size: 5px;
@@ -174,7 +179,7 @@ input .userInputs::placeholder {
   width: 15rem;
 }
 
-.innerradiocontainer{
+.innerradiocontainer {
   display: flex;
   flex-direction: row;
   margin-right: 0.5rem;
@@ -187,44 +192,36 @@ input .userInputs::placeholder {
 
 }
 
-.radioInput{
+.radioInput {
   margin-top: 4px;
 }
 
-.Innerradiolabel{
-          font-weight: 500;
-          font-size: 10px;
-          margin-right: 0.1rem;
-          padding-top: 4px;
+.Innerradiolabel {
+  font-weight: 500;
+  font-size: 10px;
+  margin-right: 0.1rem;
+  padding-top: 4px;
 }
+
 /* grid section */
-.gridSection{
-  margin-top: 5rem;
+.gridSection {
+  /* margin-top: 5rem; */
 }
 
 .k-grid .k-grid-header .k-header {
-      border-bottom: none;
-      background: linear-gradient(#8597ae, #4c5c72);
-      color: white;
-      font-weight: 500;
-      font-size: 12px;
-}
-
-/* .section1-fieldset
-{
-  color:  #3A6EA2;;
-} */
-.cellCustomClass{
-  color: rgb(54, 54, 54);
+  border-bottom: none;
+  background: linear-gradient(#8597ae, #4c5c72);
+  color: white;
+  font-weight: 500;
   font-size: 12px;
-  
-}
-.legend-text {
-  font-style: 10px;
-  font-weight: 700;
-  color: #476c9e;
 }
 
+
+/* .cellCustomClass{
+    color: rgb(54, 54, 54);
+    font-size: 12px;
+    
+} */
 
 
 /*For tab view*/
@@ -264,7 +261,7 @@ input .userInputs::placeholder {
   background-color: #ccc;
 }
 
-.tablinks{
+.tablinks {
   width: 6rem;
   height: 2.5rem;
   font-size: 12px;
@@ -274,7 +271,7 @@ input .userInputs::placeholder {
 
 /* final grid buttons */
 
-.tab_btn{
+.tab_btn {
   font-size: 12px;
   font-weight: 600;
   background-color: white;
@@ -285,12 +282,30 @@ input .userInputs::placeholder {
 /* for radio buttons */
 .k-radio:checked,
 .k-radio.k-checked {
-  border-color: var(--kendo-color-primary, #69aefd) !important; 
+  border-color: var(--kendo-color-primary, #69aefd) !important;
   color: var(--kendo-color-on-primary, #ffffff) !important;
-  background-color: var(--kendo-color-primary, #0088ff) !important; 
+  background-color: var(--kendo-color-primary, #0088ff) !important;
 
 }
 
+/* legend fieldset */
+/* section 1 */
+.section1-fieldset {
+  /* margin-top: 2rem; */
+  /* height: 14rem; */
+}
 
 
+.legend-text {
+  font-style: 10px;
+  font-weight: 700;
+  color: #476c9e;
+}
 
+
+/* section 2 */
+
+.section2-fieldset {
+  margin-top: 1rem;
+  /* height: 12rem; */
+}
